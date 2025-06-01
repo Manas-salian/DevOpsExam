@@ -12,13 +12,5 @@ hero:
       link: /sheet
     - theme: brand
       text: Full manual
-      link: /CodersArcade-DevOps-VTU-LabManual-V-1.1.pdf
+      link: https://drive.google.com/file/d/1f7qbFxOd2MpcEuyR-7ako1AvRIg2Gh72/view?usp=drive_link
 
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
----

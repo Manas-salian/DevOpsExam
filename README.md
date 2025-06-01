@@ -1,2 +1,0 @@
-# DevOpsExam
-Copy Paste Boi
