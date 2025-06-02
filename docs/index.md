@@ -8,8 +8,11 @@ hero:
   tagline: Copy Paste Karo
   actions:
     - theme: brand
-      text: Cheat sheet
+      text: Writeup / incase any issues
       link: /sheet
+    - theme: brand
+      text: CheatSheet
+      link: /ShortCuts
     - theme: brand
       text: Full manual
       link: https://drive.google.com/file/d/1f7qbFxOd2MpcEuyR-7ako1AvRIg2Gh72/view?usp=drive_link
