@@ -16,6 +16,10 @@ hero:
     - theme: brand
       text: Full manual
       link: https://drive.google.com/file/d/1f7qbFxOd2MpcEuyR-7ako1AvRIg2Gh72/view?usp=drive_link
+    - theme: brand
+      text: DOCS manual
+      link: https://docs.google.com/document/d/1dPAjcmnMgjOaRhBP6nVtFHcU5wxkH2m3/edit?usp=sharing&ouid=109215094949178450708&rtpof=true&sd=true
+      
 ---
 
 ::: tip

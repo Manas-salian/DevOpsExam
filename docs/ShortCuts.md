@@ -392,7 +392,7 @@ java -jar build/libs/MVNGRDKOTLINDEMO-1.0-SNAPSHOT-all.jar
 ```
 
 ---
-# Experiment 5
+# Experiment 6
 ### Build and Run a Java Application with Maven, Migrate the Same Application to Gradle
 
 #### Create and Build a Java Application with Maven
@@ -549,6 +549,155 @@ Step 5: Run the JAR File
 ```bash
 java -jar build\libs\Experiment5-1.0-SNAPSHOT.jar
 ```
+---
 
+# Experiment 5
+
+# Jenkins Installation Guide
+
+## System Requirements
+
+- **Memory:** 256 MB of RAM  
+- **Disk Space:** Depends on your projects  
+- **Operating System:** Windows, Mac, Ubuntu, Linux  
+- **Java Version:** Java 8 or 11 (JDK or JRE)  
 
 ---
+
+## Installation on Windows
+
+ **Watch This Video To Seamlessly Install Jenkins:**  
+**Jenkins Installation - Step by Step Guide**
+
+### Step-by-Step Instructions
+
+1. **Check if Java is installed**  
+2. **Download** the `jenkins.war` file from the official site  
+3. **Open Command Prompt** and run the following command:  
+   ```bash
+        java -jar jenkins.war --httpPort=8080
+    ````
+4. **Open your browser** and go to:
+   [http://localhost:8080](http://localhost:8080)
+5. **Provide the admin password** and complete the setup wizard
+
+---
+
+## Jenkins Configuration
+
+### How to Change Jenkins Home Directory
+
+1. Navigate to:
+   `Manage Jenkins` ➝ `Configure System` to view your current **JENKINS\_HOME**
+2. **Create a new folder** where you want Jenkins to store its data
+3. **Copy the contents** of the old `JENKINS_HOME` to the new folder
+4. **Set or update** the environment variable `JENKINS_HOME` to the new path
+5. **Restart Jenkins**
+
+📄 Configuration File Reference:
+
+* `jenkins.xml`
+* Environment Variable: `JENKINS_HOME`
+
+# Setting Up Git on Jenkins
+
+## Step-by-Step Git Plugin Setup
+
+1. Go to **Manage Jenkins** ➝ **Manage Plugins**
+2. Check the **Installed** tab to see if Git is already installed
+3. If not, go to the **Available** tab and search for **Git**
+4. Click **Install** to install the Git plugin
+5. After installation, verify that the **Git** option appears in the **Job Configuration** section
+
+---
+
+# Creating Your First Job in Jenkins
+
+## Connecting Jenkins to a Git Remote Repository (e.g., GitHub)
+
+1. **Get the URL** of the remote Git repository (HTTPS or SSH)
+2. **Add Git credentials** to Jenkins:
+   - Go to **Manage Jenkins** ➝ **Credentials**
+   - Add the username/password or SSH key under the appropriate scope
+3. In your job's configuration:
+   - Go to the **Source Code Management (SCM)** section
+   - Select **Git**
+   - Enter the **Git repository URL**
+4. **Add the credentials** you created earlier
+5. **Run the job** and verify if the repository is successfully cloned
+
+Here’s your complete Jenkins guide rewritten in **Markdown** format for clarity and easy reference:
+
+````markdown
+# Jenkins Command Line Interface (CLI)
+
+## Why Use CLI?
+Faster, easier, seamless integration with Jenkins.
+
+### How to Use Jenkins CLI
+
+1. **Start Jenkins**
+2. Go to: `Manage Jenkins` ➝ `Configure Global Security` ➝ **Enable Security**
+3. Open your browser and visit:  
+   [http://localhost:8080/cli/](http://localhost:8080/cli/)
+4. **Download** the `jenkins-cli.jar` and place it anywhere on your system
+5. **Test Jenkins CLI** with the following command:
+   ```bash
+   java -jar jenkins-cli.jar -s http://localhost:8080/ help --username <userName> --password <password>
+````
+
+---
+
+# User and Role Management in Jenkins
+
+## Creating Users and Assigning Roles
+
+1. **Create new users** from `Manage Jenkins` ➝ `Manage Users`
+2. **Configure users** as needed
+3. Install the **Role-Based Authorization Strategy Plugin**
+
+   * Go to `Manage Jenkins` ➝ `Manage Plugins` ➝ Available ➝ Search & Install
+   * Restart Jenkins after installation
+4. Go to:
+   `Manage Jenkins` ➝ `Configure Global Security` ➝ **Authorization** ➝ Select **Role-Based Strategy**
+5. Go to: `Manage Jenkins` ➝ `Manage and Assign Roles`
+
+   * **Create Roles**
+   * **Assign Roles to Users**
+6. **Validate** that authentication and authorization work as expected
+
+---
+
+# Jenkinsfile – Pipeline as Code
+
+### Build ➝ Deploy ➝ Test ➝ Release
+
+## How to Create a Jenkinsfile
+
+1. **Start Jenkins**
+2. **Install the Pipeline Plugin** from `Manage Plugins`
+3. **Create a new job**
+4. In the job configuration, go to the **Pipeline** section:
+
+   * Select **Pipeline Script**
+   * Write or paste your `Jenkinsfile` here
+5. **Run the job** and verify the output
+
+---
+
+## Jenkins Pipeline from Git SCM
+
+### Use Jenkinsfile from a Git Repository
+
+1. Create a **new job** or use an **existing job** (Job Type: *Pipeline*)
+2. Create a **Git repository** (e.g., on GitHub)
+3. Add a `Jenkinsfile` to the repository
+4. In the job configuration:
+
+   * Go to **Pipeline** ➝ **Definition**: *Pipeline script from SCM*
+   * **SCM**: Git
+   * Provide the **repository URL**
+   * Specify the **Jenkinsfile location** in the repo
+5. **Save** the job
+6. **Run** the job and validate the pipeline execution
+
