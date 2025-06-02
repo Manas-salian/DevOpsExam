@@ -2,14 +2,14 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "DevOpsExamCheatSheet",
-  description: "Copy Paste Karo",
+  title: "Easy Github Docs",
+  description: "Learn Git",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Writup', link: '/sheet' },
-      { text: 'CheatSheet', link: '/ShortCuts' }
+      { text: 'UseThis', link: '/ShortCuts' }
     ],
 
     sidebar: [
@@ -17,7 +17,7 @@ export default defineConfig({
         text: 'Pages',
         items: [
           { text: 'Writup', link: '/sheet' },
-          { text: 'CheatSheet', link: '/ShortCuts' }
+          { text: 'UseThis', link: '/ShortCuts' }
         ]
       }
     ],

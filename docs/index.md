@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "DevOps exam"
-  text: "Cheat sheet"
-  tagline: Copy Paste Karo
+  name: "GitHub Docs"
+  text: "Easy Github Docs"
+  tagline: Learn Github the easy way
   actions:
     - theme: brand
       text: Writeup / incase any issues
@@ -16,4 +16,14 @@ hero:
     - theme: brand
       text: Full manual
       link: https://drive.google.com/file/d/1f7qbFxOd2MpcEuyR-7ako1AvRIg2Gh72/view?usp=drive_link
+---
 
+::: tip
+GitHub Setup
+[Nice Video Link](https://www.youtube.com/watch?v=AdzKzlp66sQ)
+:::
+
+::: tip
+GitHub Setup
+[One More Nice Video](https://youtu.be/q8EevlEpQ2A?si=LRRqI6M0P-GNSGlX)
+:::
