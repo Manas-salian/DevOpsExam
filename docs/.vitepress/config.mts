@@ -4,6 +4,10 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Easy Github Docs",
   description: "Learn Git",
+
+  // 👇 Move this here (top-level)
+  ignoreDeadLinks: true,
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
