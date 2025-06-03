@@ -93,21 +93,7 @@ Step 1: Open IntelliJ IDEA and Create a New Project
 4. Set the Group ID (e.g., com.example).
 5. Click Finish.
 ![500](attachments/Pasted%20image%2020250602162905.png)
-Step 2: See the Project Structure
-```
-my-gradle-project
-├── build.gradle (Groovy Build Script)
-├── settings.gradle
-└── src
-    ├── main
-    │   ├── java
-	|	|	└── com.example
-	|	|		└── Main     <--- You need to edit this
-    │   └── resources
-    └── test
-        ├── java
-        └── resources
-```
+
 Step 1: Modify build.gradle (Groovy DSL) 
 (Copy paste the entire code, or you can just change if "id" to "application")
 ```groovy
@@ -128,7 +114,23 @@ application {
 }
 ```
 
-Step 2: edit Main.java in src/main/java/com/example
+Step 2: See the Project Structure
+```
+my-gradle-project
+├── build.gradle (Groovy Build Script)
+├── settings.gradle
+└── src
+    ├── main
+    │   ├── java
+	|	|	└── com.example
+	|	|		└── Main     <--- You need to edit this
+    │   └── resources
+    └── test
+        ├── java
+        └── resources
+```
+
+Step 3: edit Main.java in src/main/java/com/example
 
 ```java
 package com.example;
@@ -197,21 +199,7 @@ Step 1: Open IntelliJ IDEA and Create a New Project
 4. Set the Group ID (e.g., com.example).
 5. Click Finish.
 ![500](attachments/Pasted%20image%2020250602162905.png)
-Step 2: See the Project Structure
-```
-my-gradle-project
-├── build.gradle (Groovy Build Script)
-├── settings.gradle
-└── src
-    ├── main
-    │   ├── java
-	|	|	└── com.example
-	|	|		└── Main     <--- You need to edit this
-    │   └── resources
-    └── test
-        ├── java
-        └── resources
-```
+
 Step 1: Modify build.gradle (Groovy DSL) 
 (Copy paste the entire code, or you can just change if "id" to "application")
 ```groovy
@@ -232,7 +220,23 @@ application {
 }
 ```
 
-Step 2: edit Main.java in src/main/java/com/example
+Step 2: See the Project Structure
+```
+my-gradle-project
+├── build.gradle (Groovy Build Script)
+├── settings.gradle
+└── src
+    ├── main
+    │   ├── java
+	|	|	└── com.example
+	|	|		└── Main     <--- You need to edit this
+    │   └── resources
+    └── test
+        ├── java
+        └── resources
+```
+
+Step 3: edit Main.java in src/main/java/com/example
 
 ```java
 package com.example;
@@ -244,7 +248,7 @@ public class Main {
 }
 ```
 
-Step 3: Build and Run the Project
+Step 4: Build and Run the Project
 
 - Press `ALT + F12` to open terminal.
 
@@ -392,7 +396,7 @@ java -jar build/libs/MVNGRDKOTLINDEMO-1.0-SNAPSHOT-all.jar
 ```
 
 ---
-# Experiment 6
+# Experiment 5
 ### Build and Run a Java Application with Maven, Migrate the Same Application to Gradle
 
 #### Create and Build a Java Application with Maven
@@ -551,41 +555,29 @@ java -jar build\libs\Experiment5-1.0-SNAPSHOT.jar
 ```
 ---
 
-# Experiment 5
+# Experiment 6
+### Jenkins Installation Guide
 
-# Jenkins Installation Guide
-
-## System Requirements
+### System Requirements
 
 - **Memory:** 256 MB of RAM  
 - **Disk Space:** Depends on your projects  
 - **Operating System:** Windows, Mac, Ubuntu, Linux  
 - **Java Version:** Java 8 or 11 (JDK or JRE)  
 
----
-
-## Installation on Windows
-
- **Watch This Video To Seamlessly Install Jenkins:**  
-**Jenkins Installation - Step by Step Guide**
-
-### Step-by-Step Instructions
+### Installation on Windows - Step-by-Step Instructions
 
 1. **Check if Java is installed**  
 2. **Download** the `jenkins.war` file from the official site  
 3. **Open Command Prompt** and run the following command:  
    ```bash
         java -jar jenkins.war --httpPort=8080
-    ````
+    ```
 4. **Open your browser** and go to:
    [http://localhost:8080](http://localhost:8080)
 5. **Provide the admin password** and complete the setup wizard
 
----
-
-## Jenkins Configuration
-
-### How to Change Jenkins Home Directory
+### Jenkins Configuration - How to Change Jenkins Home Directory
 
 1. Navigate to:
    `Manage Jenkins` ➝ `Configure System` to view your current **JENKINS\_HOME**
@@ -594,12 +586,12 @@ java -jar build\libs\Experiment5-1.0-SNAPSHOT.jar
 4. **Set or update** the environment variable `JENKINS_HOME` to the new path
 5. **Restart Jenkins**
 
-📄 Configuration File Reference:
+Configuration File Reference:
 
 * `jenkins.xml`
 * Environment Variable: `JENKINS_HOME`
 
-# Setting Up Git on Jenkins
+## Setting Up Git on Jenkins
 
 ## Step-by-Step Git Plugin Setup
 
@@ -609,11 +601,9 @@ java -jar build\libs\Experiment5-1.0-SNAPSHOT.jar
 4. Click **Install** to install the Git plugin
 5. After installation, verify that the **Git** option appears in the **Job Configuration** section
 
----
+### Creating Your First Job in Jenkins
 
-# Creating Your First Job in Jenkins
-
-## Connecting Jenkins to a Git Remote Repository (e.g., GitHub)
+### Connecting Jenkins to a Git Remote Repository (e.g., GitHub)
 
 1. **Get the URL** of the remote Git repository (HTTPS or SSH)
 2. **Add Git credentials** to Jenkins:
@@ -626,12 +616,9 @@ java -jar build\libs\Experiment5-1.0-SNAPSHOT.jar
 4. **Add the credentials** you created earlier
 5. **Run the job** and verify if the repository is successfully cloned
 
-Here’s your complete Jenkins guide rewritten in **Markdown** format for clarity and easy reference:
+### Jenkins Command Line Interface (CLI)
 
-````markdown
-# Jenkins Command Line Interface (CLI)
-
-## Why Use CLI?
+### Why Use CLI?
 Faster, easier, seamless integration with Jenkins.
 
 ### How to Use Jenkins CLI
@@ -644,13 +631,9 @@ Faster, easier, seamless integration with Jenkins.
 5. **Test Jenkins CLI** with the following command:
    ```bash
    java -jar jenkins-cli.jar -s http://localhost:8080/ help --username <userName> --password <password>
-````
+    ```
 
----
-
-# User and Role Management in Jenkins
-
-## Creating Users and Assigning Roles
+### User and Role Management in Jenkins - Creating Users and Assigning Roles
 
 1. **Create new users** from `Manage Jenkins` ➝ `Manage Users`
 2. **Configure users** as needed
@@ -666,13 +649,11 @@ Faster, easier, seamless integration with Jenkins.
    * **Assign Roles to Users**
 6. **Validate** that authentication and authorization work as expected
 
----
-
-# Jenkinsfile – Pipeline as Code
+### Jenkinsfile – Pipeline as Code
 
 ### Build ➝ Deploy ➝ Test ➝ Release
 
-## How to Create a Jenkinsfile
+### How to Create a Jenkinsfile
 
 1. **Start Jenkins**
 2. **Install the Pipeline Plugin** from `Manage Plugins`
@@ -683,9 +664,8 @@ Faster, easier, seamless integration with Jenkins.
    * Write or paste your `Jenkinsfile` here
 5. **Run the job** and verify the output
 
----
 
-## Jenkins Pipeline from Git SCM
+### Jenkins Pipeline from Git SCM
 
 ### Use Jenkinsfile from a Git Repository
 
@@ -701,3 +681,4 @@ Faster, easier, seamless integration with Jenkins.
 5. **Save** the job
 6. **Run** the job and validate the pipeline execution
 
+---
