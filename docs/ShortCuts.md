@@ -294,63 +294,79 @@ https://yourusername.github.io/repository-name/
 ---
 # Experiment 4
 ### Gradle Kotlin DSL: Setting Up & Building a Kotlin Project in IntelliJ IDEA
->(Not working as of now)
+
+> Finally fixed this Nonsense
 #### Setting Up the Gradle Project
 Step 1: Create a New Project
 1. Open IntelliJ IDEA.
 2. Click on File > New > Project.
-3. Name your project -> MVNGRDKOTLINDEMO
-4. Click Finish.
-![500](attachments/Pasted%20image%2020250602213138.png)
-###### Understanding build.gradle.kts
-After creating the project, the default build.gradle.kts file looks like this:
+3. Give a Project name
+
+![500](attachments/Pasted%20image%2020250603030014.png)
+
+Note down the java JDK version carefully in this step !!!
+Also Note Down the GroupID in my case `com.example` is the default, yours might be `org.example` also i'll be using jdk version 21 so be careful.
+
+Observe in the project structure, that there is no `org.example` or `com.example`.... you need to create a `org.example` or `com.example` folder under `kotlin` folder.
+
+![400](attachments/Pasted%20image%2020250603030855.png)
+
+![400](attachments/Pasted%20image%2020250603031229.png)
+
+next drag and drop the Main.kt file inside the org.example folder.
+
+###### Editing the Main Kotlin File
+
+Copy paste this Main.kt file. Be careful about `org.example` or `com.example`.
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
-plugins {
-    kotlin("jvm") version "1.8.10" // Use latest stable Kotlin version
-    application
-}
-
-group = "org.example"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation(kotlin("stdlib")) // Kotlin Standard Library
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "17" // Match with your JDK version
-}
-
-application {
-    mainClass.set("MainKt") // Update this if using a package
-}
-```
-
-#### Creating the Main Kotlin File
-Now, create your Main.kt file inside src/main/kotlin/.
-If you're using a package (e.g., org.example), it should look like:
-
-```kotlin
-package org.example
+package com.example
 
 fun main() {
     println("Hello, Gradle with Kotlin DSL!")
 }
 ```
-If you're not using a package, remove the package line and ensure mainClass.set("MainKt") in build.gradle.kts.
+
+###### Understanding build.gradle.kts
+Copy paste this code to build.gradle.kts and make the necessary changes:
+
+```kotlin
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile  
+  
+plugins {  
+    kotlin("jvm") version "2.1.10"  // this version can be a problem sometimes  
+    application  
+}  // alternatively try with "1.8.10"  
+  
+group = "com.example"  //change to org.example if thats your default groupID  
+version = "1.0-SNAPSHOT"  
+  
+repositories {  
+    mavenCentral()  
+}  
+  
+dependencies {  
+    implementation(kotlin("stdlib"))  
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")  
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")  
+}  
+  
+tasks.test {  
+    useJUnitPlatform()  
+}  
+  
+tasks.withType<KotlinCompile> {  
+    kotlinOptions.jvmTarget = "21" // Match with your JDK version !!!  
+}  
+  
+kotlin {  
+    jvmToolchain(21)  // Here too !!  
+}  
+  
+application {  
+    mainClass.set("com.example.MainKt") // Use your package + filename here  
+}
+```
 
 ###### Building and Running the Project
 Build the Project
@@ -376,7 +392,7 @@ tasks.register<Jar>("fatJar") {
     archiveClassifier.set("all")
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
-        attributes["Main-Class"] = "MainKt"
+        attributes["Main-Class"] = "com.example.MainKt" //change to org.example if your groupId is org.example
     }
     from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
     with(tasks.jar.get() as CopySpec)
@@ -389,11 +405,16 @@ tasks.register<Jar>("fatJar") {
 ./gradlew fatJar
 ```
 
+This command will create a jar file inside build/libs. locate the file
+![500](attachments/Pasted%20image%2020250605070115.png)
+
+
 3. Run the Fat JAR
 
 ```bash
-java -jar build/libs/MVNGRDKOTLINDEMO-1.0-SNAPSHOT-all.jar
+java -jar build/libs/Experiment4New-1.0-SNAPSHOT-all.jar
 ```
+Note your filename may be different so replace with `build/libs/FILENAME-all.jar`, replaceing FILENAME with your project filename.
 
 ---
 # Experiment 5
@@ -556,29 +577,26 @@ java -jar build\libs\Experiment5-1.0-SNAPSHOT.jar
 ---
 
 # Experiment 6
-### Jenkins Installation Guide
+#### Jenkins Installation Guide
 
-### System Requirements
-
+###### System Requirements
 - **Memory:** 256 MB of RAM  
 - **Disk Space:** Depends on your projects  
 - **Operating System:** Windows, Mac, Ubuntu, Linux  
 - **Java Version:** Java 8 or 11 (JDK or JRE)  
 
-### Installation on Windows - Step-by-Step Instructions
-
+###### Installation on Windows - Step-by-Step Instructions
 1. **Check if Java is installed**  
 2. **Download** the `jenkins.war` file from the official site  
 3. **Open Command Prompt** and run the following command:  
-   ```bash
-        java -jar jenkins.war --httpPort=8080
-    ```
-4. **Open your browser** and go to:
+```bash
+ java -jar jenkins.war --httpPort=8080
+```
+2. **Open your browser** and go to:
    [http://localhost:8080](http://localhost:8080)
-5. **Provide the admin password** and complete the setup wizard
+3. **Provide the admin password** and complete the setup wizard
 
-### Jenkins Configuration - How to Change Jenkins Home Directory
-
+#### Jenkins Configuration - How to Change Jenkins Home Directory
 1. Navigate to:
    `Manage Jenkins` ➝ `Configure System` to view your current **JENKINS\_HOME**
 2. **Create a new folder** where you want Jenkins to store its data
@@ -587,24 +605,19 @@ java -jar build\libs\Experiment5-1.0-SNAPSHOT.jar
 5. **Restart Jenkins**
 
 Configuration File Reference:
-
 * `jenkins.xml`
 * Environment Variable: `JENKINS_HOME`
 
-## Setting Up Git on Jenkins
-
-## Step-by-Step Git Plugin Setup
-
+#### Setting Up Git on Jenkins
+###### Step-by-Step Git Plugin Setup
 1. Go to **Manage Jenkins** ➝ **Manage Plugins**
 2. Check the **Installed** tab to see if Git is already installed
 3. If not, go to the **Available** tab and search for **Git**
 4. Click **Install** to install the Git plugin
 5. After installation, verify that the **Git** option appears in the **Job Configuration** section
 
-### Creating Your First Job in Jenkins
-
-### Connecting Jenkins to a Git Remote Repository (e.g., GitHub)
-
+#### Creating Your First Job in Jenkins
+###### Connecting Jenkins to a Git Remote Repository (e.g., GitHub)
 1. **Get the URL** of the remote Git repository (HTTPS or SSH)
 2. **Add Git credentials** to Jenkins:
    - Go to **Manage Jenkins** ➝ **Credentials**
@@ -616,13 +629,11 @@ Configuration File Reference:
 4. **Add the credentials** you created earlier
 5. **Run the job** and verify if the repository is successfully cloned
 
-### Jenkins Command Line Interface (CLI)
+#### Jenkins Command Line Interface (CLI)
 
-### Why Use CLI?
+##### Why Use CLI?
 Faster, easier, seamless integration with Jenkins.
-
-### How to Use Jenkins CLI
-
+#### How to Use Jenkins CLI
 1. **Start Jenkins**
 2. Go to: `Manage Jenkins` ➝ `Configure Global Security` ➝ **Enable Security**
 3. Open your browser and visit:  
@@ -633,47 +644,38 @@ Faster, easier, seamless integration with Jenkins.
    java -jar jenkins-cli.jar -s http://localhost:8080/ help --username <userName> --password <password>
     ```
 
-### User and Role Management in Jenkins - Creating Users and Assigning Roles
+#### User and Role Management in Jenkins - Creating Users and Assigning Roles
 
 1. **Create new users** from `Manage Jenkins` ➝ `Manage Users`
 2. **Configure users** as needed
 3. Install the **Role-Based Authorization Strategy Plugin**
-
    * Go to `Manage Jenkins` ➝ `Manage Plugins` ➝ Available ➝ Search & Install
    * Restart Jenkins after installation
 4. Go to:
    `Manage Jenkins` ➝ `Configure Global Security` ➝ **Authorization** ➝ Select **Role-Based Strategy**
 5. Go to: `Manage Jenkins` ➝ `Manage and Assign Roles`
-
    * **Create Roles**
    * **Assign Roles to Users**
 6. **Validate** that authentication and authorization work as expected
 
-### Jenkinsfile – Pipeline as Code
 
-### Build ➝ Deploy ➝ Test ➝ Release
-
-### How to Create a Jenkinsfile
-
+#### Jenkinsfile – Pipeline as Code
+###### Build ➝ Deploy ➝ Test ➝ Release
+#### How to Create a Jenkinsfile
 1. **Start Jenkins**
 2. **Install the Pipeline Plugin** from `Manage Plugins`
 3. **Create a new job**
 4. In the job configuration, go to the **Pipeline** section:
-
    * Select **Pipeline Script**
    * Write or paste your `Jenkinsfile` here
 5. **Run the job** and verify the output
 
-
-### Jenkins Pipeline from Git SCM
-
-### Use Jenkinsfile from a Git Repository
-
+#### Jenkins Pipeline from Git SCM
+###### Use Jenkinsfile from a Git Repository
 1. Create a **new job** or use an **existing job** (Job Type: *Pipeline*)
 2. Create a **Git repository** (e.g., on GitHub)
 3. Add a `Jenkinsfile` to the repository
 4. In the job configuration:
-
    * Go to **Pipeline** ➝ **Definition**: *Pipeline script from SCM*
    * **SCM**: Git
    * Provide the **repository URL**
