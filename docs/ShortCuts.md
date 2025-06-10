@@ -302,7 +302,7 @@ Step 1: Create a New Project
 2. Click on File > New > Project.
 3. Give a Project name
 
-![500](attachments/Pasted%20image%2020250603030014.png)
+> Note to self: Add Image here 
 
 Note down the java JDK version carefully in this step !!!
 Also Note Down the GroupID in my case `com.example` is the default, yours might be `org.example` also i'll be using jdk version 21 so be careful.
