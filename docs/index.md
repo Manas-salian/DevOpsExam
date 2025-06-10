@@ -19,6 +19,9 @@ hero:
     - theme: brand
       text: DOCS manual
       link: https://docs.google.com/document/d/1dPAjcmnMgjOaRhBP6nVtFHcU5wxkH2m3/edit?usp=sharing&ouid=109215094949178450708&rtpof=true&sd=true
+    - theme: brand
+      text: DAA
+      link: /daa
       
 ---
 
