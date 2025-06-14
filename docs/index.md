@@ -8,7 +8,7 @@ hero:
   tagline: Learn Github the easy way
   actions:
     - theme: brand
-      text: Writeup / incase any issues
+      text: Only for writeup
       link: /sheet
     - theme: brand
       text: CheatSheet
