@@ -1,5 +1,5 @@
 
-# Experiment 1
+## Experiment 1
 ### Working with Maven: Creating a Maven Project, Understanding the POM File
 
 #### Steps to Get Output :
@@ -81,7 +81,7 @@ git push -u origin master
 
 ---
 
-# Experiment 2
+## Experiment 2
 ### Installing and Setting Up Gradle in IntelliJ IDEA
 
 #### Creating a Gradle Project in IntelliJ IDEA:
@@ -187,7 +187,7 @@ https://yourusername.github.io/repository-name/
 
 ---
 
-# Experiment 3
+## Experiment 3
 ### Working with Gradle: Setting Up a Gradle Project, Understanding Build Scripts
 
 > exact same as 2nd one copy same
@@ -292,7 +292,7 @@ https://yourusername.github.io/repository-name/
 ```
 
 ---
-# Experiment 4
+## Experiment 4
 ### Gradle Kotlin DSL: Setting Up & Building a Kotlin Project in IntelliJ IDEA
 
 > Finally fixed this Nonsense
@@ -417,7 +417,7 @@ java -jar build/libs/Experiment4New-1.0-SNAPSHOT-all.jar
 Note your filename may be different so replace with `build/libs/FILENAME-all.jar`, replaceing FILENAME with your project filename.
 
 ---
-# Experiment 5
+## Experiment 5
 ### Build and Run a Java Application with Maven, Migrate the Same Application to Gradle
 
 #### Create and Build a Java Application with Maven
@@ -576,7 +576,7 @@ java -jar build\libs\Experiment5-1.0-SNAPSHOT.jar
 ```
 ---
 
-# Experiment 6
+## Experiment 6
 #### Jenkins Installation Guide
 
 ###### System Requirements
